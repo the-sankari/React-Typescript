@@ -1,18 +1,21 @@
-type GreetProps ={
-    name: string;
-    age?: number; // optional prop
-}
+type GreetProps = {
+  name: string;
+  messageCount?: number;
+  isLoggedIn?: boolean;
+};
 
-const Greet = (props: GreetProps,) => {
+const Greet = (props: GreetProps) => {
   return (
     <div>
-      <h2>Hello {props.name}, welcome to the React + TypeScript + Vite app!</h2>
-      {props.age && <p>Your age is {props.age}.</p>}
+      {props.isLoggedIn ? (
+        <h2>
+          Welcome {props.name}! You have {props.messageCount} new messages.
+        </h2>
+      ) : (
+        <h2>Welcome Guest</h2>
+      )}
     </div>
-  )
-}
-
-
-
+  );
+};
 
 export default Greet;
